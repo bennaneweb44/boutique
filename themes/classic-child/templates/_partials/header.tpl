@@ -94,10 +94,7 @@
 {/block}
 
 <style>
-  @media (max-width: 640px) {
-    .top-menu {
-      margin-top : 50px;
-    }
+  @media (max-width: 640px) {    
     #mobile_top_menu_wrapper {
       margin-top: 5px;
     }
