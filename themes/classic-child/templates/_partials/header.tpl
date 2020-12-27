@@ -92,3 +92,14 @@
   </div>
   {hook h='displayNavFullWidth'}
 {/block}
+
+<style>
+  @media (max-width: 640px) {
+    .top-menu {
+      margin-top : 50px;
+    }
+    #mobile_top_menu_wrapper {
+      margin-top: 5px;
+    }
+  } 
+</style>
