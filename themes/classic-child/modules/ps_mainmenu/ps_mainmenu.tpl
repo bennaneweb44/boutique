@@ -44,9 +44,16 @@
   }
 
   @media (min-width: 600px)  {
-    ul.top-menu > li {
+
+    #top_sub_menu_20416 > ul.top-menu > li {
       position: relative;
-      left: -30px;
+    }
+
+    ul.top-menu > li > div > ul.top-menu {
+      background-color: #fff;
+      margin-top: -1px !important;      
+      margin-left: -25px !important;     
+      padding-top: 10px !important;  
     }
   }
 </style>
