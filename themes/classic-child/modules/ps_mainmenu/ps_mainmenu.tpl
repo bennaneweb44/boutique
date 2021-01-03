@@ -1,7 +1,7 @@
 {assign var=_counter value=0}
 {function name="menu" nodes=[] depth=0 parent=null}
     {if $nodes|count}
-      <ul class="top-menu" {if $depth == 0}id="top-menu"{/if} data-depth="{$depth}">
+      <ul class="top-menu" {if $depth == 0}id="top-menu"{/if} data-depth="{$depth}" style="z-index: 99;">
         {foreach from=$nodes item=node}
             <li class="{$node.type}{if $node.current} current {/if}" id="{$node.page_identifier}">
             {assign var=_counter value=$_counter+1}
@@ -23,9 +23,9 @@
                 {$node.label}
               </a>
               {if $node.children|count}
-              <div {if $depth === 0} class="popover sub-menu js-sub-menu collapse"{else} class="collapse"{/if} id="top_sub_menu_{$_expand_id}">
-                {menu nodes=$node.children depth=$node.depth parent=$node}
-              </div>
+                <div {if $depth === 0} class="sub-menu js-sub-menu collapse"{else} class="collapse"{/if} id="top_sub_menu_{$_expand_id}">                  
+                  {menu nodes=$node.children depth=$node.depth parent=$node}                  
+                </div>
               {/if}
             </li>
         {/foreach}
@@ -43,17 +43,26 @@
     position: absolute;
   }
 
-  @media (min-width: 600px)  {
+  .sub-menu {
+    font-size: 0.8em;
+  }
 
-    #top_sub_menu_20416 > ul.top-menu > li {
-      position: relative;
-    }
+  /* Tous les écrans sauf mobile */
+  @media (min-width: 600px) {
 
     ul.top-menu > li > div > ul.top-menu {
       background-color: #fff;
-      margin-top: -1px !important;      
-      margin-left: -25px !important;     
-      padding-top: 10px !important;  
+      margin-top: -1px;      
+      margin-left: -25px;
     }
+  }
+
+  /* Mobile */
+  @media (max-width: 600px) {
+
+    ul.top-menu > li > div > ul.top-menu {
+      position: relative;       
+      background-color: #eee;
+    }    
   }
 </style>
